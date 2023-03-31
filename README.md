@@ -23,7 +23,7 @@ Joshua Myers
 Dane Kargis  
 Tyler Mifflin
 
-## API(s) Used
+## APIs Used
 Picnic CSS  
 https://picnicss.com/
   
