@@ -1,0 +1,18 @@
+.National-Park-Dropdown{
+display: flex;
+flex-direction: column;
+padding-bottom: 10px;
+padding-right: 80%;
+}
+
+.Trails-Dropdown{
+display: flex;
+flex-direction: column;
+padding-right: 80%;
+}
+
+.Park-Info{
+display: flex;
+flex-direction: column;
+padding-left: 80%;
+}
