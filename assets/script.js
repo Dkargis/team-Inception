@@ -1,5 +1,6 @@
 var APIkeyopenweather = "2b43e2e1e9e4752f4b3c2320f365c4f8"
 var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
+var NationalParkDropdownEl = document.getElementsByClassName("National-Park-Dropdown")
 var ZionEl = document.getElementById("Zion");
 var BryceEl = document.getElementById("Bryce");
 var ArchesEl = document.getElementById("Arches");
@@ -16,9 +17,13 @@ var FiveDayForecastEl = document.getElementById("Five-Day-Forecast");
 var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIkeyopenweather;
 var NPStrailsURL = ""
 
-function getNationalpark {
-    if (event.target === ZionEl)
-}
+NationalParkDropdownEl.addEventListener("click", function(event) {
+    event.preventDefault();
+    if (event.target === ZionEl ){
+        lat = [0];
+        lon= [0]
+    }
+} else 
 
 function getWeatherparks(weatherURL) {
     fetch(weatherURL)

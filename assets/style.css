@@ -7,18 +7,24 @@
   font-family: 'Roboto', sans-serif;
 }
 
+aside{
+    
+}
+
 .National-Park-Dropdown{
 display: flex;
 flex-direction: column;
 padding-bottom: 10px;
 margin-right: 80%;
 margin-top: 10%;
+padding-right: 12%;
 }
 
 .Trails-Dropdown{
 display: flex;
 flex-direction: column;
 margin-right: 80%;
+padding-right: 12%;
 }
 
 #Park-Info{
@@ -34,6 +40,7 @@ flex-direction: column;
 align-items: right;
 margin-left: 80%;
 padding-right: 10px;
+margin-bottom: 30%;
 }
 
 .National-Park-Name{
@@ -44,12 +51,15 @@ margin-top: 0%;
 
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 1%;
+    padding-right: 100%;
     margin-top: 4%;
-    background-color: var(--bblue);
+    background-color: rgb(255, 102, 0);
     color: var(--white);
+    position: absolute; bottom: 0; 
 }
 
 footer h2 {
@@ -67,11 +77,11 @@ footer li {
 }
 
 footer a {
-    color: var(--white);
+    color: black;
     font-weight: bold;
     font-size: 25px;
 }
 
 footer a:hover {
-    color: var(--orange);
+    color: white;
 }
