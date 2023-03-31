@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Flexbox</title>
+    <title>Sherpa Trails</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
@@ -10,59 +10,88 @@
   </head>
 
   <body>
-    <aside>
-      <!-- National Parks Dropdown -->
-      <div class="National-Park-Dropdown">
+    <!-- Header with title and subtitle. -->
+    <header class="main-header">
+        <h1>Sherpa Trails BOISSSSSSSSSSSSS!!!!!!!!!!!!!!!!!!!!!</h1>
+    </header>
+    <main>
+      <aside>
+        <!-- National Parks dropdown that changes which park the user wants to look at. -->
+        <div class="National-Park-Dropdown">
+          <h2>National Parks</h2>
+            <select>
+              <option id ="Zion">Zion National Park</option>
+              <option id ="Bryce">Bryce Canyon National Park</option>
+              <option id ="Arches">Arches National Park</option>
+              <option id ="Canyonlands">Canyonlands National Park</option>
+              <option id="Capitol-Reef">Capitol Reef National Park</option>
+            </select>
+        </div>
+
+        <!-- 
+          Trails dropdown that changes which trail the user wants to look at.
+          Updates based on national park picked. 
+        -->
+        <div class="Trails-Dropdown">
+          <h2>Trails</h2>
           <select>
-            <option>National Parks</option>
-            <option>Zion National Park</option>
-            <option>Bryce Canyon National Park</option>
-            <option>Arches National Park</option>
-            <option>Canyonlands National Park</option>
-            <option>Capitol Reef National Park</option>
+            <option></option>
+            <option></option>
+            <option></option>
+            <option></option>
+            <option></option>
           </select>
-      </div>
-
-      <!-- Trails Dropdown -->
-      <div class="Trails-Dropdown">
-        <select>
-          <option>Trails</option>
-          <option></option>
-          <option></option>
-          <option></option>
-          <option></option>
-        </select>
-      </div>
-    </aside>
-
-    <article class="card" id="Park-Info">
-      <header>
-        <h3>National Park Name</h3>
-      </header>
-
-      <section id="Five-Day-Forecast">
-        
-      </section>
-    </article>
-
-    <article class="card" id="Trail-Info">
-      <header>
-        <h3>National Park Name</h3>
-      </header>
-
-      <section>
-
-      </section>
-    </article>
-
-
-    
-
-  </body>
-
-  <footer>
-
-  </footer>
+        </div>
+      </aside>
       
+      <div class="wrapper">
+          <h1 class="National-Park-Name">name</h1>
+        <!-- Park information with header and 5 day forecast. -->
+        <article class="card" id="Park-Info">
+          <header>
+            <h3>National Park Name</h3>
+          </header>
 
+          <!-- Displays the 5 day forecast for the given national park. -->
+          <section id="Five-Day-Forecast">
+            
+          </section>
+        </article>
+
+        <!-- Displays information about the current trail selected. -->
+        <article class="card" id="Trail-Info">
+          <header>
+            <h3>National Park Name</h3>
+          </header>
+
+          <section>
+
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <!-- Creates the footer with contact information. -->
+    <footer class="Footer-Navbar"> 
+      <h2>Contact Information</h2>
+        <u1>
+          <li>
+              
+          </li>
+          <li>
+            jt.myers976@gmail.com
+          </li>
+          <li>
+              <a href=""> A</a>
+          </li>
+          <li>
+              <a href=""> B</a>
+          </li>
+        </u1>    
+    </footer>
+  </body>
+  
   <script type="text/javascript" src="./assets/script.js"></script>
+</html>
+
+  
