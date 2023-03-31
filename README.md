@@ -19,11 +19,11 @@ Link to deployed webpage:
 The user first selects whether they want the webpage to use their location. Second they click on the national park dropdown to find the park they are interested in. They can then pick a trail from the list or search for one. Then the webpage will display the park's 5 day forecast and information about the user picked trail. The user can favorite trails and they will be stored in local storage for later browsing. 
 
 ## Credits
-Joshua Myers
-Dane Kargis
+Joshua Myers  
+Dane Kargis  
 Tyler Mifflin
 
-## APIs Used
+## API(s) Used
 Picnic CSS  
 https://picnicss.com/
   
