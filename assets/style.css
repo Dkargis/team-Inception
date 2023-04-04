@@ -1,3 +1,5 @@
+
+
 .main-header {
   background-color: rgb(60, 204, 253);
   color: #fff;
@@ -7,29 +9,29 @@
   font-family: 'Roboto', sans-serif;
 }
 
+main{
+  justify-content: center;
+  align-items: center;
+}
+
 aside{
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    float: left;
+    margin-right: 10%;
+}
+
+.wrapper{
+
+
+}
+
+.card{
+
 }
 
 
-
-.National-Park-Dropdown{
-display: flex;
-flex-direction: column;
-padding-bottom: 10px;
-margin-right: 80%;
-margin-top: 10%;
-padding-right: 12%;
-}
-
-.Trails-Dropdown{
-display: flex;
-flex-direction: column;
-margin-right: 80%;
-padding-right: 12%;
-}
 
 #Park-Info{
 display: flex;
