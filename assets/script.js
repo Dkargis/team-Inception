@@ -24,8 +24,20 @@ NationalParkDropdownEl.addEventListener("click", function(event) {
     if (event.target === ZionEl ){
         lat = [0];
         lon= [0]
-    }
-} else 
+    } else if (event.target === BryceEl) {
+        lat = [1];
+        lon = [1]
+    } else if (event.target === ArchesEl) {
+        lat = [2];
+        lon = [2]
+    } else if (event.target === CanyonlandsEl) {
+        lat = [3];
+        lon = [3]
+    } else if (event.target === CapitolReefEl) {
+        lat = [4];
+        lon = [4]
+    } 
+} )
 
 function getWeatherparks(weatherURL) {
     fetch(weatherURL)
