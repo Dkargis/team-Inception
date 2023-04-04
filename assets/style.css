@@ -22,9 +22,12 @@ aside{
     margin-right: 10%;
 }
 
+<<<<<<< HEAD
 .card{
 
 }
+=======
+>>>>>>> 682f4ba4504d621bfbc32338d8756ac7969d5e9a
 
 #Park-Info{
 display: flex;
@@ -58,7 +61,7 @@ footer {
     margin-top: 4%;
     background-color: rgb(255, 102, 0);
     color: var(--white);
-    position: absolute; bottom: 0; 
+
 }
 
 footer h2 {
