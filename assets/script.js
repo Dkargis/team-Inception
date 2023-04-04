@@ -6,6 +6,7 @@ var BryceEl = document.getElementById("Bryce");
 var ArchesEl = document.getElementById("Arches");
 var CanyonlandsEl = document.getElementById("Canyonlands");
 var CapitolReefEl = document.getElementById("Capitol-Reef")
+test
 
 /* 
     The following arrays contain the longitudes and latituds for Utah's National Parks.

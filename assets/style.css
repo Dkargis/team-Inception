@@ -8,8 +8,12 @@
 }
 
 aside{
-    
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
+
+
 
 .National-Park-Dropdown{
 display: flex;
@@ -50,38 +54,10 @@ margin-top: 0%;
 }
 
 footer {
-    display: flex;
-    flex-direction: column;
+    
     justify-content: space-between;
     align-items: center;
-    padding: 1%;
-    padding-right: 100%;
-    margin-top: 4%;
+    margin-top: 20%;
     background-color: rgb(255, 102, 0);
     color: var(--white);
-    position: absolute; bottom: 0; 
-}
-
-footer h2 {
-    margin-right: 30px; 
-}
-
-footer u1 {
-    display: flex;
-    list-style: none;
-    margin-right: 50%;
-}
-
-footer li {
-    margin-right: 70px;
-}
-
-footer a {
-    color: black;
-    font-weight: bold;
-    font-size: 25px;
-}
-
-footer a:hover {
-    color: white;
 }
