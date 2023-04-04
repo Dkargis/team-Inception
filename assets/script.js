@@ -1,3 +1,4 @@
+// created a variable to for the weather API key and the NPS API key, and the elements for the dropdown menu
 var APIkeyopenweather = "2b43e2e1e9e4752f4b3c2320f365c4f8"
 var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 var NationalParkDropdownEl = document.getElementsByClassName("National-Park-Dropdown")
@@ -6,7 +7,7 @@ var BryceEl = document.getElementById("Bryce");
 var ArchesEl = document.getElementById("Arches");
 var CanyonlandsEl = document.getElementById("Canyonlands");
 var CapitolReefEl = document.getElementById("Capitol-Reef")
-test
+
 
 /* 
     The following arrays contain the longitudes and latituds for Utah's National Parks.
