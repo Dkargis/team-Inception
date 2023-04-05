@@ -76,6 +76,8 @@ function getWeatherparks(weatherURL) {
     })     
     }
     
+
+    // created an event listener for the favorites button to save the trail to local storage
     FavoritesBTN.addEventListener("click", function(event) {
         event.preventDefault();
         console.log("Favorites Button Clicked")
@@ -87,6 +89,14 @@ function getWeatherparks(weatherURL) {
             console.log("Favorites Button Clicked")
         }
     };
+
+    // Createing a funtion that will add the favorites to the favorites list
+    function addFavorites() {
+        var FavoritesListEl = document.createElement("li");
+        localStorage.getItem("Favorites");
+
+    };
+    
 //function getNPStrails() {
   //  fetch(NPStrailsURL)
  //   .then(function(response) {
