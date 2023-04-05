@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  <head>
+    <title>Sherpa Trails</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+  </head>
+
+  <body>
+    <!-- Header with title and subtitle. -->
+    <header class="main-header">
+        <h1>Sherpa Trails</h1>
+        <h2>Favorites
+          <span>&#11088;</span>
+        <select>
+          <option>Select an option</option>
+          <option>Good option</option>
+          <option>Nice option</option>
+          <option>Cheap option</option>
+        </select>
+        </h2>
+    </header>
+    
+    <main>
+      <aside>
+        <!-- National Parks dropdown that changes which park the user wants to look at. -->
+        <div class="National-Park-Div">
+          <h2>National Parks</h2>
+            <select id="Park-Dropdown">
+              <option class="Park-Option" id="Zion">Zion National Park</option>
+              <option class="Park-Option" id="Bryce">Bryce Canyon National Park</option>
+              <option class="Park-Option" id="Arches">Arches National Park</option>
+              <option class="Park-Option" id="Canyonlands">Canyonlands National Park</option>
+              <option class="Park-Option" id="Capitol-Reef">Capitol Reef National Park</option>
+            </select>
+        </div>
+
+        <button id="Favorites-BTN" onclick="log()">&#11088;</button>
+        <!-- 
+          Trails dropdown that changes which trail the user wants to look at.
+          Updates based on national park picked. 
+        -->
+        <div class="Trails-Dropdown">
+          <h2>Trails</h2>
+          <select>
+            <option></option>
+            <option></option>
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+        </div>
+      </aside>
+      
+      <div class="wrapper">
+          <h1 class="National-Park-Name">name</h1>
+        <!-- Park information with header and 5 day forecast. -->
+        <article class="card" id="Park-Info">
+          <header>
+            <h3>National Park Name</h3>
+          </header>
+
+          <!-- Displays the 5 day forecast for the given national park. -->
+          <div class = "weathercontainer">
+            <section id="fivedayforecast1">
+            </section>
+            <section id="fivedayforecast2">
+            </section>
+            <section id="fivedayforecast3">
+            </section>
+            <section id="fivedayforecast4">
+            </section>
+            <section id="fivedayforecast5">
+            </section>
+          </div>
+          
+        </article>
+
+        <!-- Displays information about the current trail selected. -->
+        <article class="card" id="Trail-Info">
+          <header>
+            <h3>National Park Name</h3>
+          </header>
+
+          <section>
+
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <!-- Creates the footer with contact information. -->
+    <footer class="Footer-Navbar"> 
+      <h2>Contact Information</h2>
+        <u1>
+          <li>
+            tyler.mifflin1@hotmail.com
+          </li>
+          <li>
+            jt.myers976@gmail.com
+          </li>
+          <li>
+            dane.kargis@gmail.com
+          </li>
+        </u1>    
+    </footer>
+  </body>
+  
+  <script type="text/javascript" src="./assets/script.js"></script>
+</html>
+
+  
