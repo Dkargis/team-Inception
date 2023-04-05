@@ -28,17 +28,18 @@
     <main>
       <aside>
         <!-- National Parks dropdown that changes which park the user wants to look at. -->
-        <div class="National-Park-Dropdown">
+        <div class="National-Park-Div">
           <h2>National Parks</h2>
-            <select>
-              <option id ="Zion">Zion National Park</option>
-              <option id ="Bryce">Bryce Canyon National Park</option>
-              <option id ="Arches">Arches National Park</option>
-              <option id ="Canyonlands">Canyonlands National Park</option>
-              <option id="Capitol-Reef">Capitol Reef National Park</option>
+            <select id="Park-Dropdown">
+              <option class="Park-Option" id="Zion">Zion National Park</option>
+              <option class="Park-Option" id="Bryce">Bryce Canyon National Park</option>
+              <option class="Park-Option" id="Arches">Arches National Park</option>
+              <option class="Park-Option" id="Canyonlands">Canyonlands National Park</option>
+              <option class="Park-Option" id="Capitol-Reef">Capitol Reef National Park</option>
             </select>
         </div>
 
+        <button id="Favorites-BTN" onclick="log()">&#11088;</button>
         <!-- 
           Trails dropdown that changes which trail the user wants to look at.
           Updates based on national park picked. 
