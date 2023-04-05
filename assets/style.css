@@ -1,4 +1,11 @@
+html, body {
+    height: 100%;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+}
 
 .main-header {
   background-color: rgb(60, 204, 253);
@@ -12,6 +19,7 @@
 main{
   justify-content: center;
   align-items: center;
+  flex: 1 0 auto;
 }
 
 aside{
@@ -47,6 +55,7 @@ margin-top: 0%;
 
 footer {
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
