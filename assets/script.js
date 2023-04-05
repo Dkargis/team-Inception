@@ -10,6 +10,7 @@ var BryceEl = document.getElementById("Bryce");
 var ArchesEl = document.getElementById("Arches");
 var CanyonlandsEl = document.getElementById("Canyonlands");
 var CapitolReefEl = document.getElementById("Capitol-Reef")
+var FavoritesBTN = document.getElementById("Favorites-BTN");
 
 
 /* 
@@ -25,27 +26,27 @@ var NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=tra
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=trailhead&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 
 // created an event listener for the dropdown menu to find the lat and lon for the selected park and put them into the weatherURL
- NationalParkDropdownEl.addEventListener("click", function(event) {
-    event.preventDefault();
-    function getPark (event) {
-    if (event.target === ZionEl ){
-        lat = [0];
-         lon= [0]
-    } else if (event.target === BryceEl) {
-        lat = [1];
-        lon = [1];
-    } else if (event.target === ArchesEl) {
-         lat = [2];
-         lon = [2]
-     } else if (event.target === CanyonlandsEl) {
-        lat = [3];
-         lon = [3]
-     } else if (event.target === CapitolReefEl) {
-         lat = [4];
-         lon = [4]
-     } 
-        getWeatherparks(weatherURL);}
- } );
+//  NationalParkDropdownEl.addEventListener("click", function(event) {
+//     event.preventDefault();
+//     function getPark (event) {
+//     if (event.target === ZionEl ){
+//         lat = [0];
+//          lon= [0]
+//     } else if (event.target === BryceEl) {
+//         lat = [1];
+//         lon = [1];
+//     } else if (event.target === ArchesEl) {
+//          lat = [2];
+//          lon = [2]
+//      } else if (event.target === CanyonlandsEl) {
+//         lat = [3];
+//          lon = [3]
+//      } else if (event.target === CapitolReefEl) {
+//          lat = [4];
+//          lon = [4]
+//      } 
+//         getWeatherparks(weatherURL);}
+//  } );
 
 
 function getWeatherparks(weatherURL) {
