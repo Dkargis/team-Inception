@@ -7,6 +7,8 @@ var BryceEl = document.getElementById("Bryce");
 var ArchesEl = document.getElementById("Arches");
 var CanyonlandsEl = document.getElementById("Canyonlands");
 var CapitolReefEl = document.getElementById("Capitol-Reef")
+var FavoritesEl = document.getElementById("Favorites");
+var FavoritesBTN = document.getElementById("Favorites-BTN");
 
 
 /* 
@@ -41,8 +43,9 @@ var NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=tra
          lat = [4];
          lon = [4]
      } 
-        getWeatherparks(weatherURL);
- } )
+        getWeatherparks(weatherURL);}
+ } );
+
 
 function getWeatherparks(weatherURL) {
     fetch(weatherURL)
@@ -71,4 +74,19 @@ function getNPStrails() {
 
 }
 
+
+FavoritesBTN.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log("Favorites Button Clicked")
+    localStorage.setItem("Favorites", FavoritesBTN);
+    log();
+});
+
+function log() {
+    if (FavoritesBTN === true) {
+        console.log("Favorites Button Clicked")
+    }
+
+
+}
 getNPStrails();
