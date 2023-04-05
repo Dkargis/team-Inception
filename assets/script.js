@@ -1,14 +1,15 @@
 // created a variable to for the weather API key and the NPS API key, and the elements for the dropdown menu
-var APIkeyopenweather = "2b43e2e1e9e4752f4b3c2320f365c4f8"
-var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
-var NationalParkDropdownEl = document.getElementsByClassName("National-Park-Dropdown")
+var APIkeyopenweather = "2b43e2e1e9e4752f4b3c2320f365c4f8";
+var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg";
+var NationalParkDropdownEl = document.querySelector(".National-Park-Dropdown");
+
+var parkSelectEl = document.querySelector(".Park-Option");
+
 var ZionEl = document.getElementById("Zion");
 var BryceEl = document.getElementById("Bryce");
 var ArchesEl = document.getElementById("Arches");
 var CanyonlandsEl = document.getElementById("Canyonlands");
 var CapitolReefEl = document.getElementById("Capitol-Reef")
-var FavoritesEl = document.getElementById("Favorites");
-var FavoritesBTN = document.getElementById("Favorites-BTN");
 
 
 /* 
@@ -53,11 +54,19 @@ function getWeatherparks(weatherURL) {
         return response.json();
     })
     .then(function(data) {
+        // created variables for name of park, date, weather icon, temperature, humidity, wind speed, and UV index
+        var parkName = data.city.name;
+        var date = data.list[0].dt_txt;
+        var weatherIcon = data.list[0].weather[0].icon;
+        var temp = data.list[0].main.temp;
+        var humidity = data.list[0].main.humidity;
+        var windSpeed = data.list[0].wind.speed;
+        var UVindex = data.list[0].main.uvi;
         console.log(data)
+        
     }
     )
 }
-
 
 function getNPStrails() {
     fetch(NPStrailsURL)
