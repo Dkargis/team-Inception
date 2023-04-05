@@ -1,13 +1,16 @@
 // created a variable to for the weather API key and the NPS API key, and the elements for the dropdown menu
-var APIkeyopenweather = "2b43e2e1e9e4752f4b3c2320f365c4f8"
-var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
-var NationalParkDropdownEl = document.getElementsByClassName("National-Park-Dropdown")
+var APIkeyopenweather = "2b43e2e1e9e4752f4b3c2320f365c4f8";
+var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg";
+var NationalParkDropdownEl = document.querySelector(".National-Park-Dropdown");
+
+var parkSelectEl = document.querySelector(".Park-Option");
+
 var ZionEl = document.getElementById("Zion");
 var BryceEl = document.getElementById("Bryce");
 var ArchesEl = document.getElementById("Arches");
 var CanyonlandsEl = document.getElementById("Canyonlands");
-var CapitolReefEl = document.getElementById("Capitol-Reef")
-
+var CapitolReefEl = document.getElementById("Capitol-Reef");
+var selectedPark;
 
 /* 
     The following arrays contain the longitudes and latituds for Utah's National Parks.
@@ -43,7 +46,6 @@ function getWeatherparks(weatherURL) {
     fetch(weatherURL)
 }
 
-
 function getNPStrails() {
     fetch(NPStrailsURL)
     .then(function(response) {
@@ -59,4 +61,10 @@ function getNPStrails() {
 
 }
 
-getNPStrails();
+// Grabs the user input from the park dropdown.
+document.body.addEventListener("click", function(event){
+if (event.target.className = "Park-Option") {
+    var parkDropdown = document.getElementById("Park-Dropdown");
+    selectedPark = parkDropdown.options[parkDropdown.selectedIndex].value;
+    console.log(selectedPark);
+}}, false);
