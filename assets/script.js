@@ -197,7 +197,39 @@ function getWeatherparks(weatherURL) {
         fivedayforecast4El.appendChild(UVindex4El);
         fivedayforecast4El.setAttribute("class, card col-2");
         fivedayforecast4El.setAttribute("style", "background-color: #f5f5f5; border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
-        
+        //created variables for day 5 of the 5 day forecast
+        var date5El = data.list[32].dt_txt;
+        date5El = date5El.split(" ");
+        date5El = date5El[0];
+        var weatherIcon5El = data.list[32].weather[0].icon;
+        var temperature5El = data.list[32].main.temp;
+        temperature5El = (temp - 273.15) * 1.80 + 32;
+        temperature5El = Math.round(temperature5El);
+        var humidity5El = data.list[32].main.humidity;
+        var windSpeed5El = data.list[32].wind.speed;
+        windSpeed5El = Math.round(windSpeed5El);
+        var UVindex5El = data.list[32].main.uvi;
+        // created elements to display day 5 of 5 day forecast
+        var date5El = document.createElement("p");
+        date5El.textContent = date5El;
+        fivedayforecast5El.appendChild(date5El);
+        var weatherIcon5El = document.createElement("img");
+        weatherIcon5El.setAttribute("src", "http://openweathermap.org/img/w/" + weatherIcon5El + ".png");
+        fivedayforecast5El.appendChild(weatherIcon5El);
+        var temperature5El = document.createElement("p");
+        temperature5El.textContent = "Temperature: " + temperature5El + "°F";
+        fivedayforecast5El.appendChild(temperature5El);
+        var humidity5El = document.createElement("p");
+        humidity5El.textContent = "Humidity: " + humidity5El + "%";
+        fivedayforecast5El.appendChild(humidity5El);
+        var windSpeed5El = document.createElement("p");
+        windSpeed5El.textContent = "Wind Speed: " + windSpeed5El + " MPH";
+        fivedayforecast5El.appendChild(windSpeed5El);
+        var UVindex5El = document.createElement("p");
+        UVindex5El.textContent = "UV Index: " + UVindex5El;
+        fivedayforecast5El.appendChild(UVindex5El);
+        fivedayforecast5El.setAttribute("class, card col-2");
+        fivedayforecast5El.setAttribute("style", "background-color: #f5f5f5; border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
 
     })     
     }
