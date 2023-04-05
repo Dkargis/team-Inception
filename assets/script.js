@@ -50,7 +50,16 @@ function getWeatherparks(weatherURL) {
         return response.json();
     })
     .then(function(data) {
+        // created variables for name of park, date, weather icon, temperature, humidity, wind speed, and UV index
+        var parkName = data.city.name;
+        var date = data.list[0].dt_txt;
+        var weatherIcon = data.list[0].weather[0].icon;
+        var temp = data.list[0].main.temp;
+        var humidity = data.list[0].main.humidity;
+        var windSpeed = data.list[0].wind.speed;
+        var UVindex = data.list[0].main.uvi;
         console.log(data)
+        
     }
     )
 }
