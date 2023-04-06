@@ -16,14 +16,14 @@ var fivedayforecast3El = document.getElementById("fivedayforecast3");
 var fivedayforecast4El = document.getElementById("fivedayforecast4");
 var fivedayforecast5El = document.getElementById("fivedayforecast5");
 
-/*
-    The following arrays contain the longitudes and latituds for Utah's National Parks.
-    Index Key: 0 = Zion, 1 = Bryce Canyon, 2 = Arches, 3 = Canyonlands, 4 = Capitol Reef
-*/
+
+    //The following arrays contain the longitudes and latituds for Utah's National Parks.
+   // Index Key: 0 = Zion, 1 = Bryce Canyon, 2 = Arches, 3 = Canyonlands, 4 = Capitol Reef
+
 var lat =   [37.2982, 37.5930, 38.7331, 38.2136, 38.0877]
 var lon = [-113.0263, -112.1871, -109.5925, -109.9025, -111.1355]
 var FiveDayForecastEl = document.getElementById("Five-Day-Forecast");
-var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIkeyopenweather;
+var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + 37.2982 + "&lon=" + -113.0263 + "&appid=" + APIkeyopenweather;
 var NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "arch,care,zion,cany,brca"
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=hiking&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=trailhead&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
@@ -52,6 +52,7 @@ var NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=tra
  //} 
 
 function getWeatherparks(weatherURL) {
+    var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + 37.2982 + "&lon=" + -113.0263 + "&appid=" + APIkeyopenweather;
     fetch(weatherURL)
     .then(function(response) {
         return response.json();
@@ -63,12 +64,11 @@ function getWeatherparks(weatherURL) {
         date= date[0];
         var weatherIcon = data.list[0].weather[0].icon;
         var temperature = data.list[0].main.temp;
-        temperature = (temp - 273.15) * 1.80 + 32;
+        temperature = (temperature - 273.15) * 1.80 + 32;
         temperature = Math.round(temperature);
         var humidity = data.list[0].main.humidity;
         var windSpeed = data.list[0].wind.speed;
         windSpeed = Math.round(windSpeed);
-        var UVindex = data.list[0].main.uvi;
         // console logged the data to make sure it was working
         console.log(data);
         console.log(date);
@@ -76,7 +76,6 @@ function getWeatherparks(weatherURL) {
         console.log(temperature);
         console.log(humidity);
         console.log(windSpeed);
-        console.log(UVindex);
         // created elements to display the 5 day forecast 
         var dateEl = document.createElement("p");
         dateEl.textContent = date;
@@ -93,10 +92,6 @@ function getWeatherparks(weatherURL) {
         var windSpeedEl = document.createElement("p");
         windSpeedEl.textContent = "Wind Speed: " + windSpeed + " MPH";
         fivedayforecast1El.appendChild(windSpeedEl);
-        var UVindexEl = document.createElement("p");
-        UVindexEl.textContent = "UV Index: " + UVindex;
-        fivedayforecast1El.appendChild(UVindexEl);
-        fivedayforecast1El.setAttribute("class, card col-2");
         fivedayforecast1El.setAttribute("style", "background-color: #f5f5f5; border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
         //created variables for day 2 of the 5 day forecast
         var date2El = data.list[8].dt_txt;
@@ -104,12 +99,11 @@ function getWeatherparks(weatherURL) {
         date2El = date2El[0];
         var weatherIcon2El = data.list[8].weather[0].icon;
         var temperature2El = data.list[8].main.temp;
-        temperature2El = (temp - 273.15) * 1.80 + 32;
+        temperature2El = (temperature - 273.15) * 1.80 + 32;
         temperature2El = Math.round(temperature2El);
         var humidity2El = data.list[8].main.humidity;
         var windSpeed2El = data.list[8].wind.speed;
         windSpeed2El = Math.round(windSpeed2El);
-        var UVindex2El = data.list[8].main.uvi;
         // created elements to display day 2 of the 5 day forecast
         var date2El = document.createElement("p");
         date2El.textContent = date2El;
@@ -126,10 +120,6 @@ function getWeatherparks(weatherURL) {
         var windSpeed2El = document.createElement("p");
         windSpeed2El.textContent = "Wind Speed: " + windSpeed2El + " MPH";
         fivedayforecast2El.appendChild(windSpeed2El);
-        var UVindex2El = document.createElement("p");
-        UVindex2El.textContent = "UV Index: " + UVindex2El;
-        fivedayforecast2El.appendChild(UVindex2El);
-        fivedayforecast2El.setAttribute("class, card col-2");
         fivedayforecast2El.setAttribute("style", "background-color: #f5f5f5; border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
         //created variables for day 3 of the 5 day forecast
         var date3El = data.list[16].dt_txt;
@@ -137,12 +127,11 @@ function getWeatherparks(weatherURL) {
         date3El = date3El[0];
         var weatherIcon3El = data.list[16].weather[0].icon;
         var temperature3El = data.list[16].main.temp;
-        temperature3El = (temp - 273.15) * 1.80 + 32;
+        temperature3El = (temperature - 273.15) * 1.80 + 32;
         temperature3El = Math.round(temperature3El);
         var humidity3El = data.list[16].main.humidity;
         var windSpeed3El = data.list[16].wind.speed;
         windSpeed3El = Math.round(windSpeed3El);
-        var UVindex3El = data.list[16].main.uvi;
         // created elements to display day 3 of 5 day forecast
         var date3El = document.createElement("p");
         date3El.textContent = date3El;
@@ -159,10 +148,6 @@ function getWeatherparks(weatherURL) {
         var windSpeed3El = document.createElement("p");
         windSpeed3El.textContent = "Wind Speed: " + windSpeed3El + " MPH";
         fivedayforecast3El.appendChild(windSpeed3El);
-        var UVindex3El = document.createElement("p");
-        UVindex3El.textContent = "UV Index: " + UVindex3El;
-        fivedayforecast3El.appendChild(UVindex3El);
-        fivedayforecast3El.setAttribute("class, card col-2");
         fivedayforecast3El.setAttribute("style", "background-color: #f5f5f5; border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
         //created variables for day 4 of the 5 day forecast
         var date4El = data.list[24].dt_txt;
@@ -170,12 +155,11 @@ function getWeatherparks(weatherURL) {
         date4El = date4El[0];
         var weatherIcon4El = data.list[24].weather[0].icon;
         var temperature4El = data.list[24].main.temp;
-        temperature4El = (temp - 273.15) * 1.80 + 32;
+        temperature4El = (temperature - 273.15) * 1.80 + 32;
         temperature4El = Math.round(temperature4El);
         var humidity4El = data.list[24].main.humidity;
         var windSpeed4El = data.list[24].wind.speed;
         windSpeed4El = Math.round(windSpeed4El);
-        var UVindex4El = data.list[24].main.uvi;
         // created elements to display day 4 of 5 day forecast
         var date4El = document.createElement("p");
         date4El.textContent = date4El;
@@ -192,10 +176,6 @@ function getWeatherparks(weatherURL) {
         var windSpeed4El = document.createElement("p");
         windSpeed4El.textContent = "Wind Speed: " + windSpeed4El + " MPH";
         fivedayforecast4El.appendChild(windSpeed4El);
-        var UVindex4El = document.createElement("p");
-        UVindex4El.textContent = "UV Index: " + UVindex4El;
-        fivedayforecast4El.appendChild(UVindex4El);
-        fivedayforecast4El.setAttribute("class, card col-2");
         fivedayforecast4El.setAttribute("style", "background-color: #f5f5f5; border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
         //created variables for day 5 of the 5 day forecast
         var date5El = data.list[32].dt_txt;
@@ -203,12 +183,11 @@ function getWeatherparks(weatherURL) {
         date5El = date5El[0];
         var weatherIcon5El = data.list[32].weather[0].icon;
         var temperature5El = data.list[32].main.temp;
-        temperature5El = (temp - 273.15) * 1.80 + 32;
+        temperature5El = (temperature - 273.15) * 1.80 + 32;
         temperature5El = Math.round(temperature5El);
         var humidity5El = data.list[32].main.humidity;
         var windSpeed5El = data.list[32].wind.speed;
         windSpeed5El = Math.round(windSpeed5El);
-        var UVindex5El = data.list[32].main.uvi;
         // created elements to display day 5 of 5 day forecast
         var date5El = document.createElement("p");
         date5El.textContent = date5El;
@@ -225,10 +204,6 @@ function getWeatherparks(weatherURL) {
         var windSpeed5El = document.createElement("p");
         windSpeed5El.textContent = "Wind Speed: " + windSpeed5El + " MPH";
         fivedayforecast5El.appendChild(windSpeed5El);
-        var UVindex5El = document.createElement("p");
-        UVindex5El.textContent = "UV Index: " + UVindex5El;
-        fivedayforecast5El.appendChild(UVindex5El);
-        fivedayforecast5El.setAttribute("class, card col-2");
         fivedayforecast5El.setAttribute("style", "background-color: #f5f5f5; border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
 
     })     
@@ -252,3 +227,4 @@ function getWeatherparks(weatherURL) {
 //}
  
 //getNPStrails();
+getWeatherparks();
