@@ -122,31 +122,31 @@ function getWeatherparks(weatherURL) {
         fivedayforecast2El.appendChild(windSpeed2El);
         fivedayforecast2El.setAttribute("style", "background-color: #f5f5f5; border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
         //created variables for day 3 of the 5 day forecast
-        var date3El = data.list[16].dt_txt;
-        date3El = date3El.split(" ");
-        date3El = date3El[0];
-        var weatherIcon3El = data.list[16].weather[0].icon;
-        var temperature3El = data.list[16].main.temp;
-        temperature3El = (temperature - 273.15) * 1.80 + 32;
-        temperature3El = Math.round(temperature3El);
-        var humidity3El = data.list[16].main.humidity;
-        var windSpeed3El = data.list[16].wind.speed;
-        windSpeed3El = Math.round(windSpeed3El);
+        var date3 = data.list[16].dt_txt;
+        date3 = date3.split(" ");
+        date3 = date3[0];
+        var weatherIcon3 = data.list[16].weather[0].icon;
+        var temperature3 = data.list[16].main.temp;
+        temperature3 = (temperature3 - 273.15) * 1.80 + 32;
+        temperature3 = Math.round(temperature3);
+        var humidity3 = data.list[16].main.humidity;
+        var windSpeed3 = data.list[16].wind.speed;
+        windSpeed3 = Math.round(windSpeed3);
         // created elements to display day 3 of 5 day forecast
         var date3El = document.createElement("p");
-        date3El.textContent = date3El;
+        date3El.textContent = date3;
         fivedayforecast3El.appendChild(date3El);
         var weatherIcon3El = document.createElement("img");
-        weatherIcon3El.setAttribute("src", "http://openweathermap.org/img/w/" + weatherIcon3El + ".png");
+        weatherIcon3El.setAttribute("src", "http://openweathermap.org/img/w/" + weatherIcon3 + ".png");
         fivedayforecast3El.appendChild(weatherIcon3El);
         var temperature3El = document.createElement("p");
-        temperature3El.textContent = "Temperature: " + temperature3El + "°F";
+        temperature3El.textContent = "Temperature: " + temperature3 + "°F";
         fivedayforecast3El.appendChild(temperature3El);
         var humidity3El = document.createElement("p");
-        humidity3El.textContent = "Humidity: " + humidity3El + "%";
+        humidity3El.textContent = "Humidity: " + humidity3 + "%";
         fivedayforecast3El.appendChild(humidity3El);
         var windSpeed3El = document.createElement("p");
-        windSpeed3El.textContent = "Wind Speed: " + windSpeed3El + " MPH";
+        windSpeed3El.textContent = "Wind Speed: " + windSpeed3 + " MPH";
         fivedayforecast3El.appendChild(windSpeed3El);
         fivedayforecast3El.setAttribute("style", "background-color: #f5f5f5; border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
         //created variables for day 4 of the 5 day forecast
