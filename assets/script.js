@@ -32,12 +32,12 @@ var NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=tra
 
 // function to grab the 5 day forecast for the national park that is selected
 function getWeatherparks(weatherURL) {
-    var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + 37.2982 + "&lon=" + -113.0263 + "&appid=" + APIkeyopenweather;
     fetch(weatherURL)
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
+      $(".weathercard").empty();
         // created variables for name of park, date, weather icon, temperature, humidity, wind speed, and UV index to grab a 5 day forecast
         var date = data.list[0].dt_txt;
         date= date.split(" ");
@@ -50,7 +50,6 @@ function getWeatherparks(weatherURL) {
         var windSpeed = data.list[0].wind.speed;
         windSpeed = Math.round(windSpeed);
 
-        // created elements to display the 5 day forecast 
         var dateEl = document.createElement("p");
         dateEl.textContent = date;
         fivedayforecast1El.appendChild(dateEl);
@@ -67,6 +66,7 @@ function getWeatherparks(weatherURL) {
         windSpeedEl.textContent = "Wind Speed: " + windSpeed + " MPH";
         fivedayforecast1El.appendChild(windSpeedEl);
         fivedayforecast1El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+
         //created variables for day 2 of the 5 day forecast
         var date2 = data.list[8].dt_txt;
         date2 = date2.split(" ");
@@ -78,6 +78,7 @@ function getWeatherparks(weatherURL) {
         var humidity2 = data.list[8].main.humidity;
         var windSpeed2 = data.list[8].wind.speed;
         windSpeed2 = Math.round(windSpeed2);
+
         // created elements to display day 2 of the 5 day forecast
         var date2El = document.createElement("p");
         date2El.textContent = date2;
@@ -95,6 +96,7 @@ function getWeatherparks(weatherURL) {
         windSpeed2El.textContent = "Wind Speed: " + windSpeed2 + " MPH";
         fivedayforecast2El.appendChild(windSpeed2El);
         fivedayforecast2El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+
         //created variables for day 3 of the 5 day forecast
         var date3 = data.list[16].dt_txt;
         date3 = date3.split(" ");
@@ -106,6 +108,7 @@ function getWeatherparks(weatherURL) {
         var humidity3 = data.list[16].main.humidity;
         var windSpeed3 = data.list[16].wind.speed;
         windSpeed3 = Math.round(windSpeed3);
+
         // created elements to display day 3 of 5 day forecast
         var date3El = document.createElement("p");
         date3El.textContent = date3;
@@ -123,6 +126,7 @@ function getWeatherparks(weatherURL) {
         windSpeed3El.textContent = "Wind Speed: " + windSpeed3 + " MPH";
         fivedayforecast3El.appendChild(windSpeed3El);
         fivedayforecast3El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+
         //created variables for day 4 of the 5 day forecast
         var date4 = data.list[24].dt_txt;
         date4 = date4.split(" ");
@@ -134,6 +138,7 @@ function getWeatherparks(weatherURL) {
         var humidity4 = data.list[24].main.humidity;
         var windSpeed4 = data.list[24].wind.speed;
         windSpeed4 = Math.round(windSpeed4);
+
         // created elements to display day 4 of 5 day forecast
         var date4El = document.createElement("p");
         date4El.textContent = date4;
@@ -151,6 +156,7 @@ function getWeatherparks(weatherURL) {
         windSpeed4El.textContent = "Wind Speed: " + windSpeed4 + " MPH";
         fivedayforecast4El.appendChild(windSpeed4El);
         fivedayforecast4El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+
         //created variables for day 5 of the 5 day forecast
         var date5 = data.list[32].dt_txt;
         date5 = date5.split(" ");
@@ -162,6 +168,7 @@ function getWeatherparks(weatherURL) {
         var humidity5 = data.list[32].main.humidity;
         var windSpeed5 = data.list[32].wind.speed;
         windSpeed5 = Math.round(windSpeed5);
+
         // created elements to display day 5 of 5 day forecast
         var date5El = document.createElement("p");
         date5El.textContent = date5;
@@ -179,11 +186,9 @@ function getWeatherparks(weatherURL) {
         windSpeed5El.textContent = "Wind Speed: " + windSpeed5 + " MPH";
         fivedayforecast5El.appendChild(windSpeed5El);
         fivedayforecast5El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
-
     })     
     }
     
-
     // created an event listener for the favorites button to save the trail to local storage
     FavoritesBTN.addEventListener("click", function(event) {
         event.preventDefault();
