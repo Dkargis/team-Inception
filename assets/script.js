@@ -220,13 +220,21 @@ function getWeatherparks(weatherURL) {
         if (FavoritesBTN === true) {
             console.log("Favorites Button Clicked")
         }
+        addFavorite();
     };
 
-    // Createing a funtion that will add the favorites to the favorites list
-    function addFavorites() {
-        var FavoritesListEl = document.createElement("li");
-        localStorage.getItem("Favorites");
-  }
+// this function will make it so when you click the favorites button it will add what is in local storage to the favorites list as an option
+    function addFavorite() {
+        if(!document.getElementById("Favorite-Option")) {
+        var favorite = document.createElement("option");
+        favorite.textContent = localStorage.getItem("Favorites");
+        favorite.setAttribute("value", localStorage.getItem("Favorites"));
+        favorite.setAttribute("class", "Favorite-Option");
+        favorite.setAttribute("id", "Favorite-Option");
+        favorite.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+        FavoritesListEl.appendChild(favorite);
+    }
+};
   
 //function getNPStrails() {
   //  fetch(NPStrailsURL)
