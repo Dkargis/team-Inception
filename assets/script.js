@@ -24,36 +24,11 @@ var fivedayforecast5El = document.getElementById("fivedayforecast5");
    // The following arrays contain the longitudes and latituds for Utah's National Parks.
    // Index Key: 0 = Zion, 1 = Bryce Canyon, 2 = Arches, 3 = Canyonlands, 4 = Capitol Reef
 
-var lat =   [37.2982, 37.5930, 38.7331, 38.2136, 38.0877]
-var lon = [-113.0263, -112.1871, -109.5925, -109.9025, -111.1355]
 var FiveDayForecastEl = document.getElementById("Five-Day-Forecast");
-var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + 37.2982 + "&lon=" + -113.0263 + "&appid=" + APIkeyopenweather;
+var weatherURL;
 var NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "arch,care,zion,cany,brca"
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=hiking&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=trailhead&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
-
-// created an event listener for the dropdown menu to find the lat and lon for the selected park and put them into the weatherURL
-//  NationalParkDropdownEl.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     function getPark (event) {
-//     if (event.target === ZionEl ){
-//         lat = [0];
-//          lon= [0]
-//     } else if (event.target === BryceEl) {
-//         lat = [1];
-//         lon = [1];
-//     } else if (event.target === ArchesEl) {
-//          lat = [2];
-//          lon = [2]
-//      } else if (event.target === CanyonlandsEl) {
-//         lat = [3];
-//          lon = [3]
-//      } else if (event.target === CapitolReefEl) {
-//          lat = [4];
-//          lon = [4]
-//      } 
-//         getWeatherparks(weatherURL);}
-//  } );
 
 // function to grab the 5 day forecast for the national park that is selected
 function getWeatherparks(weatherURL) {
@@ -257,7 +232,37 @@ parkSubmit.addEventListener("click", function(event){
   event.preventDefault();
   selectedPark = parkSelectEl.options[parkSelectEl.selectedIndex].value;
   console.log(selectedPark);
+var lat =   [37.2982, 37.5930, 38.7331, 38.2136, 38.0877]
+var lon = [-113.0263, -112.1871, -109.5925, -109.9025, -111.1355]
+  if (selectedPark === "Zion National Park") {
+    var latitude = lat[0];
+    var longitude =lon[0];
+    weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+    } 
+    if (selectedPark === "Bryce Canyon National Park") {
+      var latitude = lat[1];
+      var longitude =lon[1];
+        weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+      }
+    if (selectedPark=== "Arches National Park") {
+        var latitude = lat[2];
+        var longitude =lon[2];
+        weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+        }
+    if (selectedPark === "Canyonlands National Park") {
+            var latitude = lat[3];
+            var longitude =lon[3];
+            weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+            }
+    if (selectedPark === "Capitol Reef National Park") {
+                var latitude = lat[4];
+                var longitude =lon[4];
+                weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+                }
+
+
 });
+
 
 // Grabs the user input from the trail dropdown.
 trailSubmit.addEventListener("click", function(event){
