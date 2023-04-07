@@ -4,6 +4,9 @@ var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg";
 var NationalParkDropdownEl = document.querySelector(".National-Park-Dropdown");
 
 var parkSelectEl = document.querySelector(".Park-Option");
+var trailSelectEl = document.querySelector(".Trail-Option");
+var parkSubmit = document.querySelector("#Park-Submit-Button");
+var trailSubmit = document.querySelector("#Trail-Submit-Button");
 
 var ZionEl = document.getElementById("Zion");
 var BryceEl = document.getElementById("Bryce");
@@ -25,55 +28,55 @@ var NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=tra
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=trailhead&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 
 // created an event listener for the dropdown menu to find the lat and lon for the selected park and put them into the weatherURL
- //NationalParkDropdownEl.addEventListener("click", function(event) {
-    //event.preventDefault();
-    //function getPark (event) {
-    //if (event.target === ZionEl ){
-        //lat = [0];
-         //lon= [0]
-    //} else if (event.target === BryceEl) {
-       // lat = [1];
-      //  lon = [1];
-   // } else if (event.target === ArchesEl) {
-       //  lat = [2];
-       //  lon = [2]
-    // } else if (event.target === CanyonlandsEl) {
-      //  lat = [3];
-      //   lon = [3]
-    // } else if (event.target === CapitolReefEl) {
-      //   lat = [4];
-     //    lon = [4]
-   //  } 
-   //     getWeatherparks(weatherURL);
- //} 
+//  NationalParkDropdownEl.addEventListener("click", function(event) {
+//   event.preventDefault();
+//   function getPark (event) {
+//     if (event.target === ZionEl ){
+//         lat = [0];
+//         lon= [0]
+//     } else if (event.target === BryceEl) {
+//       lat = [1];
+//       lon = [1];
+//   } else if (event.target === ArchesEl) {
+//         lat = [2];
+//         lon = [2]
+//     } else if (event.target === CanyonlandsEl) {
+//       lat = [3];
+//         lon = [3]
+//     } else if (event.target === CapitolReefEl) {
+//         lat = [4];
+//         lon = [4]
+//     } 
+//       getWeatherparks(weatherURL);
+//   } 
+// }
 
 function getWeatherparks(weatherURL) {
-    fetch(weatherURL)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        // created variables for name of park, date, weather icon, temperature, humidity, wind speed, and UV index
-        var parkName = data.city.name;
-        var date = data.list[0].dt_txt;
-        var weatherIcon = data.list[0].weather[0].icon;
-        var temp = data.list[0].main.temp;
-        var humidity = data.list[0].main.humidity;
-        var windSpeed = data.list[0].wind.speed;
-        var UVindex = data.list[0].main.uvi;
-        console.log(data)
-        console.log(parkName)
-        console.log(date)
-        console.log(weatherIcon)
-        console.log(temp)
-        console.log(humidity)
-        console.log(windSpeed)
-        console.log(UVindex)
-        // crea
-    })     
-    }
-    )
+  fetch(weatherURL)
+  .then(function(response) {
+      return response.json();
+  })
+  .then(function(data) {
+      // created variables for name of park, date, weather icon, temperature, humidity, wind speed, and UV index
+      var parkName = data.city.name;
+      var date = data.list[0].dt_txt;
+      var weatherIcon = data.list[0].weather[0].icon;
+      var temp = data.list[0].main.temp;
+      var humidity = data.list[0].main.humidity;
+      var windSpeed = data.list[0].wind.speed;
+      var UVindex = data.list[0].main.uvi;
+      console.log(data)
+      console.log(parkName)
+      console.log(date)
+      console.log(weatherIcon)
+      console.log(temp)
+      console.log(humidity)
+      console.log(windSpeed)
+      console.log(UVindex)
+      // crea
+  })     
 }
+
 
 
 
@@ -92,3 +95,33 @@ function getWeatherparks(weatherURL) {
 //}
  
 //getNPStrails();
+
+// Grabs the user input from the park dropdown.
+// document.body.addEventListener("click", function(event){
+//   if (event.target.className = "Park-Option") {
+//       var parkDropdown = document.getElementById("Park-Dropdown");
+//       selectedPark = parkDropdown.options[parkDropdown.selectedIndex].value;
+//       console.log(selectedPark);
+//   }
+// }, false);
+
+// Grabs the user input from the park dropdown.
+parkSubmit.addEventListener("click", function(event){
+  selectedPark = parkSelectEl.options[parkSelectEl.selectedIndex].value;
+  console.log(selectedPark);
+});
+
+// // Grabs the user input from the trail dropdown.
+// document.body.addEventListener("click", function(event){
+//   if (event.target.className = "Trail-Option") {
+//       var trailDropdown = document.getElementById("Trail-Dropdown");
+//       selectedTrail = trailDropdown.options[trailDropdown.selectedIndex].value;
+//       console.log(selectedTrail);
+//   }
+// }, false);
+
+// Grabs the user input from the trail dropdown.
+trailSubmit.addEventListener("click", function(event){
+  selectedTrail = trailSelectEl.options[trailSelectEl.selectedIndex].value;
+  console.log(selectedTrail);
+  });
