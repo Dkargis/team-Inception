@@ -4,6 +4,9 @@ var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg";
 var NationalParkDropdownEl = document.querySelector(".National-Park-Dropdown");
 
 var parkSelectEl = document.querySelector(".Park-Option");
+var trailSelectEl = document.querySelector(".Trail-Option");
+var parkSubmit = document.querySelector("#Park-Submit-Button");
+var trailSubmit = document.querySelector("#Trail-Submit-Button");
 
 var ZionEl = document.getElementById("Zion");
 var BryceEl = document.getElementById("Bryce");
@@ -94,9 +97,8 @@ function getWeatherparks(weatherURL) {
     function addFavorites() {
         var FavoritesListEl = document.createElement("li");
         localStorage.getItem("Favorites");
-
-    };
-    
+  }
+  
 //function getNPStrails() {
   //  fetch(NPStrailsURL)
  //   .then(function(response) {
@@ -112,3 +114,33 @@ function getWeatherparks(weatherURL) {
 //}
  
 //getNPStrails();
+
+// Grabs the user input from the park dropdown.
+// document.body.addEventListener("click", function(event){
+//   if (event.target.className = "Park-Option") {
+//       var parkDropdown = document.getElementById("Park-Dropdown");
+//       selectedPark = parkDropdown.options[parkDropdown.selectedIndex].value;
+//       console.log(selectedPark);
+//   }
+// }, false);
+
+// Grabs the user input from the park dropdown.
+parkSubmit.addEventListener("click", function(event){
+  selectedPark = parkSelectEl.options[parkSelectEl.selectedIndex].value;
+  console.log(selectedPark);
+});
+
+// // Grabs the user input from the trail dropdown.
+// document.body.addEventListener("click", function(event){
+//   if (event.target.className = "Trail-Option") {
+//       var trailDropdown = document.getElementById("Trail-Dropdown");
+//       selectedTrail = trailDropdown.options[trailDropdown.selectedIndex].value;
+//       console.log(selectedTrail);
+//   }
+// }, false);
+
+// Grabs the user input from the trail dropdown.
+trailSubmit.addEventListener("click", function(event){
+  selectedTrail = trailSelectEl.options[trailSelectEl.selectedIndex].value;
+  console.log(selectedTrail);
+  });
