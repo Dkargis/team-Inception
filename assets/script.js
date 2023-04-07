@@ -238,26 +238,31 @@ var lon = [-113.0263, -112.1871, -109.5925, -109.9025, -111.1355]
     var latitude = lat[0];
     var longitude =lon[0];
     weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+    getWeatherparks(weatherURL);
     } 
     if (selectedPark === "Bryce Canyon National Park") {
       var latitude = lat[1];
       var longitude =lon[1];
         weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+        getWeatherparks(weatherURL);
       }
     if (selectedPark=== "Arches National Park") {
         var latitude = lat[2];
         var longitude =lon[2];
         weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+        getWeatherparks(weatherURL);
         }
     if (selectedPark === "Canyonlands National Park") {
             var latitude = lat[3];
             var longitude =lon[3];
             weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+            getWeatherparks(weatherURL);
             }
     if (selectedPark === "Capitol Reef National Park") {
                 var latitude = lat[4];
                 var longitude =lon[4];
                 weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+                getWeatherparks(weatherURL);
                 }
 
 
