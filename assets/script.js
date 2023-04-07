@@ -1,10 +1,10 @@
 // created a variable to for the weather API key and the NPS API key, and the elements for the dropdown menu
 var APIkeyopenweather = "2b43e2e1e9e4752f4b3c2320f365c4f8";
 var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg";
-var NationalParkDropdownEl = document.querySelector(".National-Park-Dropdown");
+var NationalParkDropdownEl = document.querySelector(".National-Park-Div");
 
-var parkSelectEl = document.querySelector(".Park-Option");
-var trailSelectEl = document.querySelector(".Trail-Option");
+var parkSelectEl = document.getElementById("Park-Dropdown");
+var trailSelectEl = document.getElementById("Trail-Dropdown");
 var parkSubmit = document.querySelector("#Park-Submit-Button");
 var trailSubmit = document.querySelector("#Trail-Submit-Button");
 
@@ -74,13 +74,7 @@ function getWeatherparks(weatherURL) {
         var humidity = data.list[0].main.humidity;
         var windSpeed = data.list[0].wind.speed;
         windSpeed = Math.round(windSpeed);
-        // console logged the data to make sure it was working
-        console.log(data);
-        console.log(date);
-        console.log(weatherIcon);
-        console.log(temperature);
-        console.log(humidity);
-        console.log(windSpeed);
+
         // created elements to display the 5 day forecast 
         var dateEl = document.createElement("p");
         dateEl.textContent = date;
@@ -251,28 +245,11 @@ function getWeatherparks(weatherURL) {
 //getNPStrails();
 
 // Grabs the user input from the park dropdown.
-// document.body.addEventListener("click", function(event){
-//   if (event.target.className = "Park-Option") {
-//       var parkDropdown = document.getElementById("Park-Dropdown");
-//       selectedPark = parkDropdown.options[parkDropdown.selectedIndex].value;
-//       console.log(selectedPark);
-//   }
-// }, false);
-
-// Grabs the user input from the park dropdown.
 parkSubmit.addEventListener("click", function(event){
+  event.preventDefault();
   selectedPark = parkSelectEl.options[parkSelectEl.selectedIndex].value;
   console.log(selectedPark);
 });
-
-// // Grabs the user input from the trail dropdown.
-// document.body.addEventListener("click", function(event){
-//   if (event.target.className = "Trail-Option") {
-//       var trailDropdown = document.getElementById("Trail-Dropdown");
-//       selectedTrail = trailDropdown.options[trailDropdown.selectedIndex].value;
-//       console.log(selectedTrail);
-//   }
-// }, false);
 
 // Grabs the user input from the trail dropdown.
 trailSubmit.addEventListener("click", function(event){
