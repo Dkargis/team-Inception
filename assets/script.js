@@ -193,7 +193,7 @@ function getWeatherparks(weatherURL) {
   FavoritesBTN.addEventListener("click", function(event) {
     event.preventDefault();
     console.log("Favorites Button Clicked")
-    localStorage.setItem("Favorites", FavoritesBTN);
+    // localStorage.setItem("Favorites", FavoritesBTN);
     log();
   });
   function log() {
@@ -207,7 +207,7 @@ function getWeatherparks(weatherURL) {
   function addFavorite() {
     if(!document.getElementById("Favorite-Option")) {
     var favorite = document.createElement("option");
-    favorite.textContent = localStorage.getItem("Favorites");
+    favorite.textContent = localStorage.getItem("Trail");
     favorite.setAttribute("value", localStorage.getItem("Favorites"));
     favorite.setAttribute("class", "Favorite-Option");
     favorite.setAttribute("id", "Favorite-Option");
@@ -244,6 +244,7 @@ function getNPStrails(trailFetchURL) {
           document.getElementById("Trail-Header").textContent = selectedTrail;
           document.getElementById("Trail-URL").href = trailURL;
           document.getElementById("Trail-URL").textContent = trailURL;
+          localStorage.setItem("Trail",selectedTrail);
           break;
         }
       }
