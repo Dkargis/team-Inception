@@ -280,3 +280,5 @@ trailSubmit.addEventListener("click", function(event){
   console.log(selectedTrail);
   });
 
+
+  
