@@ -240,7 +240,7 @@ function getNPStrails(trailFetchURL) {
           document.getElementById("Trail-Header").textContent = selectedTrail;
           document.getElementById("Trail-URL").href = trailURL;
           document.getElementById("Trail-URL").textContent = trailURL;
-          localStorage.setItem("Trail",selectedTrail);
+          localStorage.setItem("Trail", selectedTrail);
           break;
         }
       }
