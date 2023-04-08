@@ -1,4 +1,4 @@
-// created a variable to for the weather API key and the NPS API key, and the elements for the dropdown menu
+// Created variables for the weather API key, the NPS API key, and the elements for the dropdown menu
 var APIkeyopenweather = "2b43e2e1e9e4752f4b3c2320f365c4f8";
 var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg";
 var NationalParkDropdownEl = document.querySelector(".National-Park-Div");
@@ -8,11 +8,6 @@ var trailSelectEl = document.getElementById("Trail-Dropdown");
 var parkSubmit = document.querySelector("#Park-Submit-Button");
 var trailSubmit = document.querySelector("#Trail-Submit-Button");
 
-var ZionEl = document.getElementById("Zion");
-var BryceEl = document.getElementById("Bryce");
-var ArchesEl = document.getElementById("Arches");
-var CanyonlandsEl = document.getElementById("Canyonlands");
-var CapitolReefEl = document.getElementById("Capitol-Reef")
 var FavoritesBTN = document.getElementById("Favorites-BTN");
 var FavoritesListEl = document.getElementById("Favorites");
 var fivedayforecast1El = document.getElementById("fivedayforecast1");
@@ -20,19 +15,17 @@ var fivedayforecast2El = document.getElementById("fivedayforecast2");
 var fivedayforecast3El = document.getElementById("fivedayforecast3");
 var fivedayforecast4El = document.getElementById("fivedayforecast4");
 var fivedayforecast5El = document.getElementById("fivedayforecast5");
-var favoritesarrayEl;
+var favoritesArrayEl = [];
 
-   // The following arrays contain the longitudes and latituds for Utah's National Parks.
-   // Index Key: 0 = Zion, 1 = Bryce Canyon, 2 = Arches, 3 = Canyonlands, 4 = Capitol Reef
-
+// The following arrays contain the longitudes and latituds for Utah's National Parks.
+// Index Key: 0 = Zion, 1 = Bryce Canyon, 2 = Arches, 3 = Canyonlands, 4 = Capitol Reef
 var FiveDayForecastEl = document.getElementById("Five-Day-Forecast");
 var weatherURL;
 var NPStrailsURL;
-//var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=hiking&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
-//var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=trailhead&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 
 // function to grab the 5 day forecast for the national park that is selected
-function getWeatherparks(weatherURL) {
+function getWeatherparks(weatherURL) 
+{
   fetch(weatherURL)
   .then(function(response) {
       return response.json();
@@ -188,38 +181,32 @@ function getWeatherparks(weatherURL) {
       fivedayforecast5El.appendChild(windSpeed5El);
       fivedayforecast5El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
   })     
-  }
-  
-  // Created an event listener for the favorites button to save the trail to local storage
-  FavoritesBTN.addEventListener("click", function(event) {
-    event.preventDefault();
-    console.log("Favorites Button Clicked")
-
-    addFavorite();
-  });
-
+  };
 
 // This function will make it so when you click the favorites button it will add what is in local storage to the favorites list as an option
-  function addFavorite() {
-    var favoriteId = "Favorite-Option-" + new Date().getTime();
-    // if(!document.getElementById(favoriteId)) {
-    var favorite = document.createElement("option");
-    favorite.textContent = localStorage.getItem("Trail");
-    favorite.setAttribute("value", localStorage.getItem("Trail"));
-    favorite.setAttribute("class", "Favorite-Option");
-    favorite.setAttribute("id", "Favorite-Option");
-    favorite.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
-    FavoritesListEl.appendChild(favorite);
-  }
-// };
+function addFavorite(favoriteName) 
+{
+  var favorite = document.createElement("option");
+  favorite.textContent = favoriteName;
+  favorite.setAttribute("value", favoriteName);
+  favorite.setAttribute("class", "Favorite-Option");
+  favorite.setAttribute("id", "Favorite-Option");
+  favorite.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+  FavoritesListEl.appendChild(favorite);
+}
 
-// Gets the specific trails for the selected national park and adds them to the dropdown.
-function getNPStrails(trailFetchURL) {
+/* 
+  Gets the selected trails for the selected national park and adds them to the dropdown.
+  Displays the selected trail to the user and its info.
+*/
+function getNPStrails(trailFetchURL) 
+{
   fetch(trailFetchURL)
     .then(function(response) {
       return response.json();
    })
   .then (function(data) {
+    var selectedTrail;
     for(let i = 0; i < data.data[0][0].parks[0].places.length; i++)
     {
       let trail = document.createElement("option");
@@ -229,11 +216,12 @@ function getNPStrails(trailFetchURL) {
       document.getElementById("Trail-Dropdown").appendChild(trail);
     }
 
-    // Grabs the user input from the trail dropdown.
+    // Grabs the user input from the trail dropdown and displays its info.
     trailSubmit.addEventListener("click", function(event) {
       event.preventDefault();
       selectedTrail = trailSelectEl.options[trailSelectEl.selectedIndex].value;
 
+      // Parse JSON file to find trail info.
       for(let i = 0; i < data.data[0][0].parks[0].places.length; i++)
       {
         if (data.data[0][0].parks[0].places[i].title === selectedTrail) {
@@ -241,20 +229,44 @@ function getNPStrails(trailFetchURL) {
           document.getElementById("Trail-Header").textContent = selectedTrail;
           document.getElementById("Trail-URL").href = trailURL;
           document.getElementById("Trail-URL").textContent = trailURL;
-          localStorage.setItem("Trail", selectedTrail);
           break;
         }
       }
     });
+
+    // Created an event listener for the favorites button to save the trail to local storage
+    FavoritesBTN.addEventListener("click", function(event) {
+      event.preventDefault();
+      if (favoritesArrayEl.includes(selectedTrail) === false) {
+        favoritesArrayEl.push(selectedTrail);
+        localStorage.setItem("favArray", JSON.stringify(favoritesArrayEl));
+        var favoriteName = selectedTrail;
+        addFavorite(favoriteName);
+      }
+    });
   })
-   .catch(function(error) {
-    console.log(error)
-   })
+
+  .catch(function(error) {
+  console.log(error)
+  })
 }
+
+// Grabs favorites from local storage when page is loaded.
+function getFavorites()
+{
+  favoritesArrayEl = JSON.parse(localStorage.getItem("favArray"));
+  for(let i = 0; i < favoritesArrayEl.length; i++)
+  {
+    addFavorite(favoritesArrayEl[i]);
+  }
+}
+
+getFavorites();
 
 // Grabs the user input from the park dropdown.
 parkSubmit.addEventListener("click", function(event) {
   event.preventDefault();
+  $("#Trail-Dropdown").empty();
   selectedPark = parkSelectEl.options[parkSelectEl.selectedIndex].value;
   var lat =   [37.2982, 37.5930, 38.7331, 38.2136, 38.0877]
   var lon = [-113.0263, -112.1871, -109.5925, -109.9025, -111.1355]
