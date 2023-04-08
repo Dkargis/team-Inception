@@ -1,10 +1,10 @@
 // created a variable to for the weather API key and the NPS API key, and the elements for the dropdown menu
 var APIkeyopenweather = "2b43e2e1e9e4752f4b3c2320f365c4f8";
 var APIkeyNPS = "xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg";
-var NationalParkDropdownEl = document.querySelector(".National-Park-Dropdown");
+var NationalParkDropdownEl = document.querySelector(".National-Park-Div");
 
-var parkSelectEl = document.querySelector(".Park-Option");
-var trailSelectEl = document.querySelector(".Trail-Option");
+var parkSelectEl = document.getElementById("Park-Dropdown");
+var trailSelectEl = document.getElementById("Trail-Dropdown");
 var parkSubmit = document.querySelector("#Park-Submit-Button");
 var trailSubmit = document.querySelector("#Trail-Submit-Button");
 
@@ -24,45 +24,20 @@ var fivedayforecast5El = document.getElementById("fivedayforecast5");
    // The following arrays contain the longitudes and latituds for Utah's National Parks.
    // Index Key: 0 = Zion, 1 = Bryce Canyon, 2 = Arches, 3 = Canyonlands, 4 = Capitol Reef
 
-var lat =   [37.2982, 37.5930, 38.7331, 38.2136, 38.0877]
-var lon = [-113.0263, -112.1871, -109.5925, -109.9025, -111.1355]
 var FiveDayForecastEl = document.getElementById("Five-Day-Forecast");
-var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + 37.2982 + "&lon=" + -113.0263 + "&appid=" + APIkeyopenweather;
+var weatherURL;
 var NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "arch,care,zion,cany,brca"
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=hiking&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=trailhead&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 
-// created an event listener for the dropdown menu to find the lat and lon for the selected park and put them into the weatherURL
-//  NationalParkDropdownEl.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     function getPark (event) {
-//     if (event.target === ZionEl ){
-//         lat = [0];
-//          lon= [0]
-//     } else if (event.target === BryceEl) {
-//         lat = [1];
-//         lon = [1];
-//     } else if (event.target === ArchesEl) {
-//          lat = [2];
-//          lon = [2]
-//      } else if (event.target === CanyonlandsEl) {
-//         lat = [3];
-//          lon = [3]
-//      } else if (event.target === CapitolReefEl) {
-//          lat = [4];
-//          lon = [4]
-//      } 
-//         getWeatherparks(weatherURL);}
-//  } );
-
 // function to grab the 5 day forecast for the national park that is selected
 function getWeatherparks(weatherURL) {
-    var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + 37.2982 + "&lon=" + -113.0263 + "&appid=" + APIkeyopenweather;
     fetch(weatherURL)
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
+      $(".weathercard").empty();
         // created variables for name of park, date, weather icon, temperature, humidity, wind speed, and UV index to grab a 5 day forecast
         var date = data.list[0].dt_txt;
         date= date.split(" ");
@@ -74,14 +49,7 @@ function getWeatherparks(weatherURL) {
         var humidity = data.list[0].main.humidity;
         var windSpeed = data.list[0].wind.speed;
         windSpeed = Math.round(windSpeed);
-        // console logged the data to make sure it was working
-        console.log(data);
-        console.log(date);
-        console.log(weatherIcon);
-        console.log(temperature);
-        console.log(humidity);
-        console.log(windSpeed);
-        // created elements to display the 5 day forecast 
+
         var dateEl = document.createElement("p");
         dateEl.textContent = date;
         fivedayforecast1El.appendChild(dateEl);
@@ -97,7 +65,8 @@ function getWeatherparks(weatherURL) {
         var windSpeedEl = document.createElement("p");
         windSpeedEl.textContent = "Wind Speed: " + windSpeed + " MPH";
         fivedayforecast1El.appendChild(windSpeedEl);
-        fivedayforecast1El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+        fivedayforecast1El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
+
         //created variables for day 2 of the 5 day forecast
         var date2 = data.list[8].dt_txt;
         date2 = date2.split(" ");
@@ -109,6 +78,7 @@ function getWeatherparks(weatherURL) {
         var humidity2 = data.list[8].main.humidity;
         var windSpeed2 = data.list[8].wind.speed;
         windSpeed2 = Math.round(windSpeed2);
+
         // created elements to display day 2 of the 5 day forecast
         var date2El = document.createElement("p");
         date2El.textContent = date2;
@@ -125,7 +95,8 @@ function getWeatherparks(weatherURL) {
         var windSpeed2El = document.createElement("p");
         windSpeed2El.textContent = "Wind Speed: " + windSpeed2 + " MPH";
         fivedayforecast2El.appendChild(windSpeed2El);
-        fivedayforecast2El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+        fivedayforecast2El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
+
         //created variables for day 3 of the 5 day forecast
         var date3 = data.list[16].dt_txt;
         date3 = date3.split(" ");
@@ -137,6 +108,7 @@ function getWeatherparks(weatherURL) {
         var humidity3 = data.list[16].main.humidity;
         var windSpeed3 = data.list[16].wind.speed;
         windSpeed3 = Math.round(windSpeed3);
+
         // created elements to display day 3 of 5 day forecast
         var date3El = document.createElement("p");
         date3El.textContent = date3;
@@ -153,7 +125,8 @@ function getWeatherparks(weatherURL) {
         var windSpeed3El = document.createElement("p");
         windSpeed3El.textContent = "Wind Speed: " + windSpeed3 + " MPH";
         fivedayforecast3El.appendChild(windSpeed3El);
-        fivedayforecast3El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+        fivedayforecast3El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
+
         //created variables for day 4 of the 5 day forecast
         var date4 = data.list[24].dt_txt;
         date4 = date4.split(" ");
@@ -165,6 +138,7 @@ function getWeatherparks(weatherURL) {
         var humidity4 = data.list[24].main.humidity;
         var windSpeed4 = data.list[24].wind.speed;
         windSpeed4 = Math.round(windSpeed4);
+
         // created elements to display day 4 of 5 day forecast
         var date4El = document.createElement("p");
         date4El.textContent = date4;
@@ -181,7 +155,8 @@ function getWeatherparks(weatherURL) {
         var windSpeed4El = document.createElement("p");
         windSpeed4El.textContent = "Wind Speed: " + windSpeed4 + " MPH";
         fivedayforecast4El.appendChild(windSpeed4El);
-        fivedayforecast4El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+        fivedayforecast4El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
+
         //created variables for day 5 of the 5 day forecast
         var date5 = data.list[32].dt_txt;
         date5 = date5.split(" ");
@@ -193,6 +168,7 @@ function getWeatherparks(weatherURL) {
         var humidity5 = data.list[32].main.humidity;
         var windSpeed5 = data.list[32].wind.speed;
         windSpeed5 = Math.round(windSpeed5);
+
         // created elements to display day 5 of 5 day forecast
         var date5El = document.createElement("p");
         date5El.textContent = date5;
@@ -209,12 +185,10 @@ function getWeatherparks(weatherURL) {
         var windSpeed5El = document.createElement("p");
         windSpeed5El.textContent = "Wind Speed: " + windSpeed5 + " MPH";
         fivedayforecast5El.appendChild(windSpeed5El);
-        fivedayforecast5El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
-
+        fivedayforecast5El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
     })     
     }
     
-
     // created an event listener for the favorites button to save the trail to local storage
     FavoritesBTN.addEventListener("click", function(event) {
         event.preventDefault();
@@ -227,20 +201,15 @@ function getWeatherparks(weatherURL) {
             console.log("Favorites Button Clicked")
         }
         addFavorite();
+        addFavorite();
     };
 
-// this function will make it so when you click the favorites button it will add what is in local storage to the favorites list as an option
-    function addFavorite() {
-        if(!document.getElementById("Favorite-Option")) {
-        var favorite = document.createElement("option");
-        favorite.textContent = localStorage.getItem("Favorites");
-        favorite.setAttribute("value", localStorage.getItem("Favorites"));
-        favorite.setAttribute("class", "Favorite-Option");
-        favorite.setAttribute("id", "Favorite-Option");
-        favorite.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
-        FavoritesListEl.appendChild(favorite);
-    }
-};
+    // Createing a funtion that will add the favorites to the favorites list
+    function addFavorites() {
+        var FavoritesListEl = document.createElement("li");
+        localStorage.getItem("Favorites");
+  }
+  
 //function getNPStrails() {
   //  fetch(NPStrailsURL)
  //   .then(function(response) {
@@ -258,28 +227,46 @@ function getWeatherparks(weatherURL) {
 //getNPStrails();
 
 // Grabs the user input from the park dropdown.
-// document.body.addEventListener("click", function(event){
-//   if (event.target.className = "Park-Option") {
-//       var parkDropdown = document.getElementById("Park-Dropdown");
-//       selectedPark = parkDropdown.options[parkDropdown.selectedIndex].value;
-//       console.log(selectedPark);
-//   }
-// }, false);
-
-// Grabs the user input from the park dropdown.
 parkSubmit.addEventListener("click", function(event){
+  event.preventDefault();
   selectedPark = parkSelectEl.options[parkSelectEl.selectedIndex].value;
   console.log(selectedPark);
+var lat =   [37.2982, 37.5930, 38.7331, 38.2136, 38.0877]
+var lon = [-113.0263, -112.1871, -109.5925, -109.9025, -111.1355]
+  if (selectedPark === "Zion National Park") {
+    var latitude = lat[0];
+    var longitude =lon[0];
+    weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+    getWeatherparks(weatherURL);
+    } 
+    if (selectedPark === "Bryce Canyon National Park") {
+      var latitude = lat[1];
+      var longitude =lon[1];
+        weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+        getWeatherparks(weatherURL);
+      }
+    if (selectedPark=== "Arches National Park") {
+        var latitude = lat[2];
+        var longitude =lon[2];
+        weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+        getWeatherparks(weatherURL);
+        }
+    if (selectedPark === "Canyonlands National Park") {
+            var latitude = lat[3];
+            var longitude =lon[3];
+            weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+            getWeatherparks(weatherURL);
+            }
+    if (selectedPark === "Capitol Reef National Park") {
+                var latitude = lat[4];
+                var longitude =lon[4];
+                weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
+                getWeatherparks(weatherURL);
+                }
+
+
 });
 
-// // Grabs the user input from the trail dropdown.
-// document.body.addEventListener("click", function(event){
-//   if (event.target.className = "Trail-Option") {
-//       var trailDropdown = document.getElementById("Trail-Dropdown");
-//       selectedTrail = trailDropdown.options[trailDropdown.selectedIndex].value;
-//       console.log(selectedTrail);
-//   }
-// }, false);
 
 // Grabs the user input from the trail dropdown.
 trailSubmit.addEventListener("click", function(event){
@@ -287,4 +274,5 @@ trailSubmit.addEventListener("click", function(event){
   console.log(selectedTrail);
   });
 
-getWeatherparks();
+
+  
