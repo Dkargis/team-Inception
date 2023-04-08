@@ -217,8 +217,8 @@ function getWeatherparks(weatherURL) {
 };
 
 // Gets the specific trails for the selected national park and adds them to the dropdown.
-function getNPStrails(trailURL) {
-  fetch(trailURL)
+function getNPStrails(trailFetchURL) {
+  fetch(trailFetchURL)
     .then(function(response) {
       return response.json();
    })
@@ -230,8 +230,24 @@ function getNPStrails(trailURL) {
       trail.setAttribute("id", "Option-" + i);
       trail.textContent = data.data[0][0].parks[0].places[i].title;
       document.getElementById("Trail-Dropdown").appendChild(trail);
-
     }
+
+    // Grabs the user input from the trail dropdown.
+    trailSubmit.addEventListener("click", function(event) {
+      event.preventDefault();
+      selectedTrail = trailSelectEl.options[trailSelectEl.selectedIndex].value;
+
+      for(let i = 0; i < data.data[0][0].parks[0].places.length; i++)
+      {
+        if (data.data[0][0].parks[0].places[i].title === selectedTrail) {
+          var trailURL = data.data[0][0].parks[0].places[i].url;
+          document.getElementById("Trail-Header").textContent = selectedTrail;
+          document.getElementById("Trail-URL").href = trailURL;
+          document.getElementById("Trail-URL").textContent = trailURL;
+          break;
+        }
+      }
+    });
   })
    .catch(function(error) {
     console.log(error)
@@ -239,7 +255,7 @@ function getNPStrails(trailURL) {
 }
 
 // Grabs the user input from the park dropdown.
-parkSubmit.addEventListener("click", function(event){
+parkSubmit.addEventListener("click", function(event) {
   event.preventDefault();
   selectedPark = parkSelectEl.options[parkSelectEl.selectedIndex].value;
   var lat =   [37.2982, 37.5930, 38.7331, 38.2136, 38.0877]
@@ -247,6 +263,7 @@ parkSubmit.addEventListener("click", function(event){
   if (selectedPark === "Zion National Park") {
     var latitude = lat[0];
     var longitude =lon[0];
+    document.getElementById("Park-Header").innerText = selectedPark;
     weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
     getWeatherparks(weatherURL);
     NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "zion"
@@ -255,6 +272,7 @@ parkSubmit.addEventListener("click", function(event){
   if (selectedPark === "Bryce Canyon National Park") {
     var latitude = lat[1];
     var longitude =lon[1];
+    document.getElementById("Park-Header").innerText = selectedPark;
     weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
     getWeatherparks(weatherURL);
     NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "brca"
@@ -263,6 +281,7 @@ parkSubmit.addEventListener("click", function(event){
   if (selectedPark=== "Arches National Park") {
     var latitude = lat[2];
     var longitude =lon[2];
+    document.getElementById("Park-Header").innerText = selectedPark;
     weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
     getWeatherparks(weatherURL);
     NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "arch"
@@ -271,6 +290,7 @@ parkSubmit.addEventListener("click", function(event){
   if (selectedPark === "Canyonlands National Park") {
     var latitude = lat[3];
     var longitude =lon[3];
+    document.getElementById("Park-Header").innerText = selectedPark;
     weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
     getWeatherparks(weatherURL);
     NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "cany"
@@ -279,17 +299,12 @@ parkSubmit.addEventListener("click", function(event){
   if (selectedPark === "Capitol Reef National Park") {
     var latitude = lat[4];
     var longitude =lon[4];
+    document.getElementById("Park-Header").innerText = selectedPark;
     weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
     getWeatherparks(weatherURL);
   }
 });
 
-
-// Grabs the user input from the trail dropdown.
-// trailSubmit.addEventListener("click", function(event){
-//   selectedTrail = trailSelectEl.options[trailSelectEl.selectedIndex].value;
-//   console.log(selectedTrail);
-//   });
 
 
   
