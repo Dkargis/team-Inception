@@ -20,6 +20,7 @@ var fivedayforecast2El = document.getElementById("fivedayforecast2");
 var fivedayforecast3El = document.getElementById("fivedayforecast3");
 var fivedayforecast4El = document.getElementById("fivedayforecast4");
 var fivedayforecast5El = document.getElementById("fivedayforecast5");
+var favoritesarrayEl;
 
    // The following arrays contain the longitudes and latituds for Utah's National Parks.
    // Index Key: 0 = Zion, 1 = Bryce Canyon, 2 = Arches, 3 = Canyonlands, 4 = Capitol Reef
