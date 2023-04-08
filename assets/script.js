@@ -193,28 +193,24 @@ function getWeatherparks(weatherURL) {
   FavoritesBTN.addEventListener("click", function(event) {
     event.preventDefault();
     console.log("Favorites Button Clicked")
-    // localStorage.setItem("Favorites", FavoritesBTN);
-    log();
-  });
-  function log() {
-    if (FavoritesBTN === true) {
-        console.log("Favorites Button Clicked")
-    }
+
     addFavorite();
-  };
+  });
+
 
 // This function will make it so when you click the favorites button it will add what is in local storage to the favorites list as an option
   function addFavorite() {
-    if(!document.getElementById("Favorite-Option")) {
+    var favoriteId = "Favorite-Option-" + new Date().getTime();
+    // if(!document.getElementById(favoriteId)) {
     var favorite = document.createElement("option");
     favorite.textContent = localStorage.getItem("Trail");
-    favorite.setAttribute("value", localStorage.getItem("Favorites"));
+    favorite.setAttribute("value", localStorage.getItem("Trail"));
     favorite.setAttribute("class", "Favorite-Option");
     favorite.setAttribute("id", "Favorite-Option");
     favorite.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
     FavoritesListEl.appendChild(favorite);
   }
-};
+// };
 
 // Gets the specific trails for the selected national park and adds them to the dropdown.
 function getNPStrails(trailFetchURL) {
