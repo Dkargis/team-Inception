@@ -7,63 +7,81 @@ body {
     flex-direction: column;
 }
 
-h2{
+#Favorites-Section {
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+#Favorites-Div {
+    display: flex;
+    flex-direction: row;
+}
+
+#Clear-Favorites-Button {
+    margin-left: 2%;
+}
+
+h2 {
     float: right;
     color: black;
 }
 
+#Favorites {
+    float: right;
+    color: black;
+    width:400px;
+}
+
 .weathercontainer {
-    display: flex;
+    display:flex;
     flex-direction: row;
-    /* align-items: center; */
-    justify-content: space-between;
 }
 
 .main-header {
-  background-color: rgb(60, 204, 253);
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  font-size: 20px;
-  font-family: 'Roboto', sans-serif;
+    background-color: rgb(60, 204, 253);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
-main{
-  justify-content: center;
-  align-items: center;
-  flex: 1 0 auto;
+main {
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
 }
 
-aside{
+aside {
     justify-content: center;
     align-items: center;
     flex-direction: row;
     float: left;
     margin-right: 1%;
+    height: 100%;
 }
 
-
-#Park-Info{
-display: flex;
-flex-direction: column;
-align-items: center;
-position: relative;
-/* margin-left: 80%; */
+#Park-Info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-#Trail-Info{
-display: flex;
-flex-direction: column;
-align-items: right;
-margin-left: 80%;
-padding-right: 10px;
-margin-bottom: 30%;
+#Trail-Info {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    margin-left: 50%;
+    padding-right: 10px;
+    margin-bottom: 30%;
 }
 
-.National-Park-Name{
-margin-left: 80%;
-padding-right: 10px;
-margin-top: 0%;
+.National-Park-Name {
+    margin-left: 80%;
+    padding-right: 10px;
+    margin-top: 0%;
 }
 
 footer {

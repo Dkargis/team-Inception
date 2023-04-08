@@ -7,6 +7,7 @@ var parkSelectEl = document.getElementById("Park-Dropdown");
 var trailSelectEl = document.getElementById("Trail-Dropdown");
 var parkSubmit = document.querySelector("#Park-Submit-Button");
 var trailSubmit = document.querySelector("#Trail-Submit-Button");
+var clearButton = document.querySelector("#Clear-Favorites-Button");
 
 var FavoritesBTN = document.getElementById("Favorites-BTN");
 var FavoritesListEl = document.getElementById("Favorites");
@@ -315,6 +316,12 @@ parkSubmit.addEventListener("click", function(event) {
   }
 });
 
+// Creates clear button that clears favorites list.
+clearButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  $("#Favorites").empty();
+  favoritesArrayEl = [];
+});
 
 
   
