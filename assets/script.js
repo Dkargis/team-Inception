@@ -26,7 +26,7 @@ var fivedayforecast5El = document.getElementById("fivedayforecast5");
 
 var FiveDayForecastEl = document.getElementById("Five-Day-Forecast");
 var weatherURL;
-var NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "arch,care,zion,cany,brca"
+var NPStrailsURL;
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=hiking&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 //var NPStrailsURL = "https://developer.nps.gov/api/v1/activities/parks?q=trailhead&limit=50&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg"
 
@@ -216,19 +216,19 @@ function getWeatherparks(weatherURL) {
     }
 };
   
-//function getNPStrails() {
-  //  fetch(NPStrailsURL)
- //   .then(function(response) {
-  //      return response.json();
- //   })
- //  .then (function(data) {
-  //     console.log(data)
+function getNPStrails() {
+    fetch(NPStrailsURL)
+    .then(function(response) {
+       return response.json();
+   })
+  .then (function(data) {
+      console.log(data)
 
- //  })
- //   .catch(function(error) {
-  //      console.log(error)
- //   })
-//}
+  })
+   .catch(function(error) {
+       console.log(error)
+   })
+}
  
 //getNPStrails();
 
@@ -244,24 +244,32 @@ var lon = [-113.0263, -112.1871, -109.5925, -109.9025, -111.1355]
     var longitude =lon[0];
     weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
     getWeatherparks(weatherURL);
+    NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "zion"
+    getNPStrails(NPStrailsURL);
     } 
     if (selectedPark === "Bryce Canyon National Park") {
       var latitude = lat[1];
       var longitude =lon[1];
         weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
         getWeatherparks(weatherURL);
+        NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "brca"
+        getNPStrails(NPStrailsURL);
       }
     if (selectedPark=== "Arches National Park") {
         var latitude = lat[2];
         var longitude =lon[2];
         weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
         getWeatherparks(weatherURL);
+        NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "arch"
+        getNPStrails(NPStrailsURL);
         }
     if (selectedPark === "Canyonlands National Park") {
             var latitude = lat[3];
             var longitude =lon[3];
             weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
             getWeatherparks(weatherURL);
+            NPStrailsURL = "https://developer.nps.gov/api/v1/amenities/parksplaces?q=trails&api_key=xzXARQmOI9aGk4SgOgRskz4plWhHvCdtI3NcKsJg&id=39BE9614-4284-4B29-A650-AB2E7215C58B&parkCode=" + "cany"
+            getNPStrails(NPStrailsURL);
             }
     if (selectedPark === "Capitol Reef National Park") {
                 var latitude = lat[4];
