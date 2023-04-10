@@ -238,15 +238,17 @@ function getNPStrails(trailFetchURL)
     // Created an event listener for the favorites button to save the trail to local storage
     FavoritesBTN.addEventListener("click", function(event) {
       event.preventDefault();
+      
       if (favoritesArrayEl === null) {
         favoritesArrayEl = [];
       }
       if (favoritesArrayEl.includes(selectedTrail) === false) {
+
         favoritesArrayEl.push(selectedTrail);
         localStorage.setItem("favArray", JSON.stringify(favoritesArrayEl));
         var favoriteName = selectedTrail;
         addFavorite(favoriteName);
-      }
+      //}
     });
   })
 
@@ -326,6 +328,7 @@ clearButton.addEventListener("click", function(event) {
   event.preventDefault();
   $("#Favorites").empty();
   favoritesArrayEl = [];
+  localStorage.clear();
 });
 
 
