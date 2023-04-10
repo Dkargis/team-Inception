@@ -238,7 +238,12 @@ function getNPStrails(trailFetchURL)
     // Created an event listener for the favorites button to save the trail to local storage
     FavoritesBTN.addEventListener("click", function(event) {
       event.preventDefault();
-      // if (favoritesArrayEl.includes(selectedTrail) === false) {
+      
+      if (favoritesArrayEl === null) {
+        favoritesArrayEl = [];
+      }
+      if (favoritesArrayEl.includes(selectedTrail) === false) {
+
         favoritesArrayEl.push(selectedTrail);
         localStorage.setItem("favArray", JSON.stringify(favoritesArrayEl));
         var favoriteName = selectedTrail;
@@ -256,9 +261,11 @@ function getNPStrails(trailFetchURL)
 function getFavorites()
 {
   favoritesArrayEl = JSON.parse(localStorage.getItem("favArray"));
-  for(let i = 0; i < favoritesArrayEl.length; i++)
-  {
-    addFavorite(favoritesArrayEl[i]);
+  if (favoritesArrayEl !== null) {
+      for(let i = 0; i < favoritesArrayEl.length; i++)
+    {
+      addFavorite(favoritesArrayEl[i]);
+    }
   }
 }
 
