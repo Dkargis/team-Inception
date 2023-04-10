@@ -259,9 +259,11 @@ function getNPStrails(trailFetchURL)
 function getFavorites()
 {
   favoritesArrayEl = JSON.parse(localStorage.getItem("favArray"));
-  for(let i = 0; i < favoritesArrayEl.length; i++)
-  {
-    addFavorite(favoritesArrayEl[i]);
+  if (favoritesArrayEl !== null) {
+      for(let i = 0; i < favoritesArrayEl.length; i++)
+    {
+      addFavorite(favoritesArrayEl[i]);
+    }
   }
 }
 
