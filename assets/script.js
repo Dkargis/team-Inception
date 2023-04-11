@@ -248,7 +248,7 @@ function getNPStrails(trailFetchURL)
         localStorage.setItem("favArray", JSON.stringify(favoritesArrayEl));
         var favoriteName = selectedTrail;
         addFavorite(favoriteName);
-      //}
+      }
     });
   })
 
