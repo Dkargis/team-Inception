@@ -38,6 +38,15 @@ h2 {
     flex-direction: row;
 }
 
+.weathercard {
+    width: auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
 .main-header {
     background-color: rgb(60, 204, 253);
     color: #fff;
@@ -65,7 +74,6 @@ aside {
 #Park-Info {
     display: flex;
     flex-direction: column;
-    align-items: center;
     position: relative;
 }
 
