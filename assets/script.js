@@ -320,6 +320,9 @@ parkSubmit.addEventListener("click", function(event) {
     document.getElementById("Park-Header").innerText = selectedPark;
     weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkeyopenweather;
     getWeatherparks(weatherURL);
+    document.getElementById("Trail-Header").textContent = "Capitol Reef National Park";
+    document.getElementById("Trail-URL").href = "https://www.nps.gov/care/planyourvisit/hiking.htm"
+    document.getElementById("Trail-URL").textContent = "https://www.nps.gov/care/planyourvisit/hiking.htm"
   }
 });
 
