@@ -60,7 +60,7 @@ function getWeatherparks(weatherURL)
       var windSpeedEl = document.createElement("p");
       windSpeedEl.textContent = "Wind Speed: " + windSpeed + " MPH";
       fivedayforecast1El.appendChild(windSpeedEl);
-      fivedayforecast1El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
+      fivedayforecast1El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px;");
 
       // Created variables for day 2 of the 5 day forecast
       var date2 = data.list[8].dt_txt;
@@ -90,7 +90,7 @@ function getWeatherparks(weatherURL)
       var windSpeed2El = document.createElement("p");
       windSpeed2El.textContent = "Wind Speed: " + windSpeed2 + " MPH";
       fivedayforecast2El.appendChild(windSpeed2El);
-      fivedayforecast2El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
+      fivedayforecast2El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px;");
 
       // Created variables for day 3 of the 5 day forecast
       var date3 = data.list[16].dt_txt;
@@ -120,7 +120,7 @@ function getWeatherparks(weatherURL)
       var windSpeed3El = document.createElement("p");
       windSpeed3El.textContent = "Wind Speed: " + windSpeed3 + " MPH";
       fivedayforecast3El.appendChild(windSpeed3El);
-      fivedayforecast3El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
+      fivedayforecast3El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px;");
 
       // Created variables for day 4 of the 5 day forecast
       var date4 = data.list[24].dt_txt;
@@ -150,7 +150,7 @@ function getWeatherparks(weatherURL)
       var windSpeed4El = document.createElement("p");
       windSpeed4El.textContent = "Wind Speed: " + windSpeed4 + " MPH";
       fivedayforecast4El.appendChild(windSpeed4El);
-      fivedayforecast4El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
+      fivedayforecast4El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px;");
 
       // Created variables for day 5 of the 5 day forecast
       var date5 = data.list[32].dt_txt;
@@ -180,7 +180,7 @@ function getWeatherparks(weatherURL)
       var windSpeed5El = document.createElement("p");
       windSpeed5El.textContent = "Wind Speed: " + windSpeed5 + " MPH";
       fivedayforecast5El.appendChild(windSpeed5El);
-      fivedayforecast5El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10%; margin: 10%;");
+      fivedayforecast5El.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px;");
   })     
   };
 
@@ -192,7 +192,7 @@ function addFavorite(favoriteName)
   favorite.setAttribute("value", favoriteName);
   favorite.setAttribute("class", "Favorite-Option");
   favorite.setAttribute("id", "Favorite-Option");
-  favorite.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;");
+  favorite.setAttribute("style", "background-color: rgb(60, 204, 253); border: 1px solid black; border-radius: 5px;");
   FavoritesListEl.appendChild(favorite);
 }
 
